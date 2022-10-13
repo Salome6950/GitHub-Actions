@@ -25,8 +25,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and push
-        uses: docker/build-push-action@v3
+        name: Build Docker Image
+        id: buildAndPushImage
+        uses: abhishek-070/docker-image-build-push-action@v1.0
         with:
-          push: true
-          tags: user/app:latest
+          registry_url: 'docker.io'
+          repository_name: 'pratice'
+          image_version: 'v1.0'
+          docker_file: '.'
