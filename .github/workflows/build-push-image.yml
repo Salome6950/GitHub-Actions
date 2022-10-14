@@ -28,6 +28,6 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: https://github.com/Salome6950/GitHub-Actions/tree/dev
+          context: "{{ defaultContext }}"
           push: true
           tags: user/app:latest
