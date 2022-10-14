@@ -1,0 +1,32 @@
+name: Docker image CI
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'dev'
+
+jobs:
+  Build-Push:
+    runs-on: ubuntu-latest
+    steps:
+      
+      -
+        name: Checkout code
+        uses: actions/checkout@v3
+      - 
+        name: docker login
+        uses: actions/checkout@v2
+        env:
+          DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+        run: |
+          docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
+      - 
+        name: Build the Docker image
+        run: docker build . --file Dockerfile --tag sago2021/practice-image:$(date +%s)
+      - 
+        name: Docker Push
+        run: docker push sago2021/practice-image
