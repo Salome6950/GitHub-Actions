@@ -26,8 +26,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
-        uses: docker/build-push-action@v3
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
-          context: "{{ defaultContext }}"
-          push: true
-          tags: user/app:latest
+          image: sago2021/actions-image
+          registry: docker.io
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        #uses: docker/build-push-action@v3
+        #with:
+         # context: "{{ defaultContext }}"
+          #push: true
+          #tags: user/app:latest
