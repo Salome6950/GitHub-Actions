@@ -13,12 +13,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       
-      - 
-        name: docker login
+      -
+        name: Checkout code
         uses: actions/checkout@v3
+      - 
+        name: docker docker/login-action
+        uses: actions/checkout@v2
         env:
           DOCKER_USER: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
+      -
+        name: docker login     
         run: |
           docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_TOKEN
       - 
