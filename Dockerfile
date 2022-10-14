@@ -3,7 +3,7 @@ LABEL maintainer="salome@gmail.com"
 RUN apt-get update -y
 RUN apt-get upgrade -y
 RUN apt-get install apache2 -y
-RUN apt install –y apache2-utils
+RUN apt install apache2-utils -y
 RUN apt clean
 RUN systemctl start apache2
 RUN systemctl enable apache2
