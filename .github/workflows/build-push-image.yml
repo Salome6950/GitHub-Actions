@@ -36,10 +36,13 @@ jobs:
           # relative path to the place where source code with Dockerfile is located
           context: https://github.com/Salome6950/GitHub-Actions.git
           # Note: tags has to be all lower-case
-          tags: sample-image:latest
+          tags: practice:latest
           push: true
           # build on feature branches, push only on main branch
           #push: ${{ github.ref == 'refs/heads/main' }}
+      - 
+        name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
