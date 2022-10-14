@@ -30,8 +30,9 @@ jobs:
         with:
           image: sago2021/actions-image
           registry: docker.io
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
         #uses: docker/build-push-action@v3
         #with:
          # context: "{{ defaultContext }}"
