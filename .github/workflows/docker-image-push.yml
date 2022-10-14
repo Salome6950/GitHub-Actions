@@ -28,7 +28,7 @@ jobs:
           docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
       - 
         name: Build Docker image
-        run: docker build . --file Dockerfile --tag practice/practice-image:$(date +%s)
+        run: docker build . --file Dockerfile --tag sago2021/practice:$(date +%s)
       - 
         name: Docker Push
-        run: docker push practice/practice-image
+        run: docker push sago2021/practice
