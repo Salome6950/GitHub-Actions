@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu
 LABEL maintainer="salome@gmail.com"
 RUN apt-get update -y
 RUN apt-get install apache2 -y
